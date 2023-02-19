@@ -59,18 +59,18 @@ main () {
 
 # Creates ovpn file with absolute paths to certs and keys
 notInject () {
-    keypath="/etc/ssl/private/"
-    certpath="/etc/ssl/certs/"
+    keypath="/etc/ssl/private"
+    certpath="/etc/ssl/certs"
     { 
-        echo "ca $keypath$cacert"
-        echo "cert $certpath$cert"
-        echo "key $keypath$key"
-        echo "tls-auth $keypath$takey 1"
+        echo "ca $certpath/ca.crt"
+        echo "cert $certpath/$nom.crt"
+        echo "key $keypath/$nom.key"
+        echo "tls-auth $keypath/ta.key 1"
     } >> "$ovpn"
 
     echo
-    echo "Store keys in $keypath"
-    echo "Store certs in $certpath"
+    echo "Store keys in $keypath/"
+    echo "Store certs in $certpath/"
 
     compress
 }
