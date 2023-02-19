@@ -99,3 +99,5 @@ compress () {
     zip -q --junnk-paths "$name.zip" "$cacert" "$cert" "$key" "$takey" "$ovpn"
     echo "Done."
 }
+
+main
