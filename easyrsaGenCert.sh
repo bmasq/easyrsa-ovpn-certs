@@ -90,6 +90,7 @@ inject () {
         echo "<tls-auth>"
         cat "$takey"
         echo "</tls-auth>"
+        echo "key-direction 1"
     } >> "$ovpn"
 }
 
