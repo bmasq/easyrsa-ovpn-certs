@@ -58,7 +58,7 @@ main () {
 }
 
 # Creates ovpn file with absolute paths to certs and keys
-nonInject () {
+notInject () {
     keypath="/etc/ssl/private/"
     certpath="/etc/ssl/certs/"
     { 
