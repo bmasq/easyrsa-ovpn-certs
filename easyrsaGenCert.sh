@@ -24,12 +24,12 @@ main () {
     easyrsa="/etc/openvpn/easy-rsa/easyrsa"
     cacert="/etc/openvpn/ca.crt"
     takey="/etc/openvpn/ta.key"
-    key="/etc/easy-rsa/pki/private/$name.key"
-    cert="/etc/easy-rsa/pki/issued/$name.crt"
+    key="/etc/openvpn/easy-rsa/pki/private/$name.key"
+    cert="/etc/openvpn/easy-rsa/pki/issued/$name.crt"
     ovpn="/root/$name.ovpn"
 
     $easyrsa gen-req "$name" nopass
-    $easyrsa sign-req client "$name"
+    $easyrsa --days=$expiration sign-req client "$name"
 
     cp /root/template.ovpn "$ovpn"
     # Yes/No menu
@@ -92,11 +92,13 @@ inject () {
         echo "</tls-auth>"
         echo "key-direction 1"
     } >> "$ovpn"
+
+    compress
 }
 
 compress () {
     echo -n "Compressing files..."
-    zip -q --junnk-paths "$name.zip" "$cacert" "$cert" "$key" "$takey" "$ovpn"
+    zip -q -j "/root/$name.zip" "$cacert" "$cert" "$key" "$takey" "$ovpn"
     echo "Done."
 }
 

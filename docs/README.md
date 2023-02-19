@@ -7,5 +7,6 @@ Copyright © 2023 Bernat Mas Quetglas
 ## Description
 
 ...
+*Needs to be run inside cadir*
 
 *WARNING: There is almost no error handling*
