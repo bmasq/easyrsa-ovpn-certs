@@ -63,8 +63,8 @@ notInject () {
     certpath="/etc/ssl/certs"
     { 
         echo "ca $certpath/ca.crt"
-        echo "cert $certpath/$nom.crt"
-        echo "key $keypath/$nom.key"
+        echo "cert $certpath/$name.crt"
+        echo "key $keypath/$name.key"
         echo "tls-auth $keypath/ta.key 1"
     } >> "$ovpn"
 
