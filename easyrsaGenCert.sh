@@ -52,9 +52,9 @@ main () {
         esac
     done
 
-    rm "$key" "$cert"
+    rm "$key"
     echo
-    echo "WARNING: CERTS and KEYS have been REMOVED from the server"
+    echo "WARNING: KEYS have been REMOVED from the server"
 }
 
 # Creates ovpn file with absolute paths to certs and keys
